@@ -7,7 +7,7 @@ function TaskItem({ task, onDelete, onEdit }) {
       <p>{task.description}</p>
       <button onClick={onDelete}>Eliminar</button>
       <button onClick={onEdit}>Editar</button>
-      <button onClick>Completo</button>
+      {/* <button onClick>Completo</button> */}
     </li>
   );
 }
