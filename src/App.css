@@ -4,3 +4,13 @@
   padding: 2rem;
   text-align: center;
 }
+
+.botonCompleto {
+  border: solid;
+  background-color: lightgreen;
+}
+
+.botonIncompleto {
+  border: solid;
+  background-color: lightcoral;
+}

@@ -11,11 +11,11 @@ function App() {
       <ul className='Task'>
         <li>
           <h4>Comprar un nuevo computador</h4>
-          <button>Completo</button> <button> incompleto</button>
+          <button className='botonCompleto'>Completo</button> <button className='botonIncompleto'> incompleto</button>
         </li>
         <li>
           <h4>Mandar a reparar un viejo computador</h4>
-          <button>Completo</button> <button>Incompleto</button>
+          <button className='botonCompleto'>Completo</button> <button className='botonIncompleto'>Incompleto</button>
         </li>
       </ul>
     </div>
