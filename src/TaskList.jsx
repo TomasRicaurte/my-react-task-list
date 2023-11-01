@@ -44,9 +44,39 @@ function TaskList() {
     }
   };
 
-  // return (
-    
-  // );
+  return (
+    <div className='TaskList'>
+      <ul className='Task'>
+        {tasks.map((task, index) => (
+          <TaskItem
+            key={index}
+            task={task}
+            onDelete={() => deleteTask(index)}
+            onEdit={() => editTask(index)}
+          />
+        ))}
+      </ul>
+      <div className="AddTask">
+        <h2>Agregar Tarea</h2>
+        <input
+          type="text"
+          placeholder="Título"
+          value={newTask.title}
+          onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
+        />
+        <textarea
+          placeholder="Descripción"
+          value={newTask.description}
+          onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
+        />
+        {editIndex !== null ? (
+          <button onClick={saveTask}>Guardar Cambios</button>
+        ) : (
+          <button onClick={addTask}>Agregar</button>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default TaskList;
