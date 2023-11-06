@@ -1,6 +1,7 @@
-import TaskList from "./Componentes/TaskList";
+import React from 'react';
+import TaskList from './TaskList';
 
-export function Tareas() {
+function Tareas() {
   return (
     <>
       <div className="Header">
@@ -10,3 +11,6 @@ export function Tareas() {
     </>
   );
 }
+
+export default Tareas;
+
