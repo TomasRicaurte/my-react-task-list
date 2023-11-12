@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Box, Button, Input, Link, List, Text } from "@chakra-ui/react";
+import { AddIcon, CheckCircleIcon, PlusSquareIcon } from "@chakra-ui/icons"
 import TaskItem from "./TaskItem";
 
 function TaskList() {
@@ -49,26 +51,32 @@ function TaskList() {
   };
 
   return (
-    <div className="TaskList">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-      <div className="AddTask">
-        <h2 className="TitleAdd">Agregar Tarea</h2>
-        <input
-          className="TaskNew"
+    <Box justifyContent="center">
+      <Link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      ></Link>
+      <Box display="flex" alignItems="center" justifyContent="space-around" w="500px" >
+        <Text fontSize="20px" fontWeight="semibold">Agregar Tarea</Text>
+        <Input
           type="text"
+          w="auto"
+          border="solid"
           placeholder="New Task"
           value={newTask.title}
           onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
         />
         {editIndex !== null ? (
-          <button onClick={saveTask} className="save"><i class="fa fa-save"/></button>
+          <Button onClick={saveTask} bg="none">
+            < CheckCircleIcon boxSize="20px"/>
+          </Button>
         ) : (
-          <button onClick={addTask} className="agregar">
-            <i class="fa fa-plus"/>
-          </button>
+          <Button bg="none" onClick={addTask}>
+            <PlusSquareIcon boxSize="25px" />
+          </Button>
         )}
-      </div>
-      <ul className="Task">
+      </Box>
+      <List marginTop="">
         {tasks.map((task, index) => (
           <TaskItem
             key={index}
@@ -77,8 +85,8 @@ function TaskList() {
             onEdit={() => editTask(index)}
           />
         ))}
-      </ul>
-    </div>
+      </List>
+    </Box>
   );
 }
 
