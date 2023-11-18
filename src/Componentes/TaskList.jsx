@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Box, Button, Input, Link, List, Text } from "@chakra-ui/react";
-import { AddIcon, CheckCircleIcon, PlusSquareIcon } from "@chakra-ui/icons"
+import { CheckCircleIcon, PlusSquareIcon } from "@chakra-ui/icons"
 import TaskItem from "./TaskItem";
 
 function TaskList() {
+  fetch(`http://localhost:5000/tasks/`, {
+    method: "GET",
+    headers:{
+      "Content-Type" : "application/json",
+      authorization : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlRvbWFzIiwiaWF0IjoxNzAwMjc1Njc4LCJleHAiOjE3MDAyNzkyNzh9.uET7QFnSfHuIV9r2ZlCkgcgka398FomLXRIpSGzow_Q"
+    }, 
+  }).then((response) => response.json())
+  .then((data) => {
+    console.log(data)
+  })
+  .catch((error) => {
+    console.error(error);
+  });;
+
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState({
     title: "",
